@@ -1,0 +1,9 @@
+# Local Pi runtime state
+.atl/
+
+# Python caches and logs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.log
+nohup.out

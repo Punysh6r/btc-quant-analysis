@@ -1,0 +1,54 @@
+# Weekly keyless data refresh: RSS news, prices, dataset, train retry.
+# The training step is allowed to fail until 200+ labeled rows exist.
+# Commits refreshed data/ + artifacts/ back to the repo so the project
+# stays alive on its own (great signal for visitors and recruiters).
+
+name: weekly-data-update
+
+on:
+  schedule:
+    # Mondays 07:00 UTC.
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Collect RSS news (append, deduped)
+        run: python download_news_rss.py --append
+
+      - name: Refresh BTC prices
+        run: python download_prices.py
+
+      - name: Rebuild labeled dataset
+        run: python build_dataset.py
+
+      - name: Validate pipeline
+        run: python -m pytest tests/ -q
+
+      - name: Retry model training (ok while data < 200 rows)
+        run: python train_model.py || echo "model not ready yet"
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data artifacts
+          git diff --cached --quiet || git commit -m "weekly data update [skip ci]"
+          git push

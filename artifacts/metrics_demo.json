@@ -1,0 +1,54 @@
+{
+  "accuracy": 0.25,
+  "macro_f1": 0.2,
+  "train_size": 12,
+  "test_size": 4,
+  "classes": [
+    "BUY",
+    "SELL"
+  ],
+  "test_labels": [
+    "BUY",
+    "SELL"
+  ],
+  "threshold_pct": 0.4,
+  "horizon": "24h",
+  "trained_at": "2026-09-14T16:20:53.831853+00:00",
+  "classification_report": {
+    "BUY": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 2.0
+    },
+    "SELL": {
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1-score": 0.4,
+      "support": 2.0
+    },
+    "accuracy": 0.25,
+    "macro avg": {
+      "precision": 0.16666666666666666,
+      "recall": 0.25,
+      "f1-score": 0.2,
+      "support": 4.0
+    },
+    "weighted avg": {
+      "precision": 0.16666666666666666,
+      "recall": 0.25,
+      "f1-score": 0.2,
+      "support": 4.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ]
+}
