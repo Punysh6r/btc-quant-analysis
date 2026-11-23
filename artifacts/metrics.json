@@ -1,8 +1,8 @@
 {
-  "accuracy": 0.54,
-  "macro_f1": 0.3082706766917293,
-  "train_size": 197,
-  "test_size": 50,
+  "accuracy": 0.5370370370370371,
+  "macro_f1": 0.29949874686716793,
+  "train_size": 216,
+  "test_size": 54,
   "classes": [
     "BUY",
     "HOLD",
@@ -15,55 +15,55 @@
   ],
   "threshold_pct": 2.0,
   "horizon": "24h",
-  "trained_at": "2026-11-16T16:37:37.977369+00:00",
+  "trained_at": "2026-11-23T18:51:55.009734+00:00",
   "classification_report": {
     "BUY": {
-      "precision": 0.6666666666666666,
-      "recall": 0.125,
-      "f1-score": 0.21052631578947367,
-      "support": 16.0
-    },
-    "HOLD": {
-      "precision": 0.625,
-      "recall": 0.8333333333333334,
-      "f1-score": 0.7142857142857143,
-      "support": 30.0
-    },
-    "SELL": {
       "precision": 0.0,
       "recall": 0.0,
       "f1-score": 0.0,
-      "support": 4.0
+      "support": 1.0
     },
-    "accuracy": 0.54,
+    "HOLD": {
+      "precision": 0.5777777777777777,
+      "recall": 0.8387096774193549,
+      "f1-score": 0.6842105263157895,
+      "support": 31.0
+    },
+    "SELL": {
+      "precision": 0.5,
+      "recall": 0.13636363636363635,
+      "f1-score": 0.21428571428571427,
+      "support": 22.0
+    },
+    "accuracy": 0.5370370370370371,
     "macro avg": {
-      "precision": 0.4305555555555555,
-      "recall": 0.3194444444444445,
-      "f1-score": 0.3082706766917293,
-      "support": 50.0
+      "precision": 0.3592592592592592,
+      "recall": 0.3250244379276637,
+      "f1-score": 0.29949874686716793,
+      "support": 54.0
     },
     "weighted avg": {
-      "precision": 0.5883333333333333,
-      "recall": 0.54,
-      "f1-score": 0.4959398496240602,
-      "support": 50.0
+      "precision": 0.5353909465020575,
+      "recall": 0.5370370370370371,
+      "f1-score": 0.480089111668059,
+      "support": 54.0
     }
   },
   "confusion_matrix": [
     [
+      0,
+      1,
+      0
+    ],
+    [
       2,
-      11,
+      26,
       3
     ],
     [
       1,
-      25,
-      4
-    ],
-    [
-      0,
-      4,
-      0
+      18,
+      3
     ]
   ]
 }
